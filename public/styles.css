@@ -1,0 +1,259 @@
+:root {
+  --bg: #f4f5f8;
+  --panel: #ffffff;
+  --text: #121525;
+  --muted: #6f738a;
+  --line: #dfe2eb;
+  --primary: #111827;
+  --primary-hover: #0a0f1a;
+  --secondary: #ffffff;
+  --shadow: 0 12px 34px rgba(16, 24, 40, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 0%, #ffffff 0%, var(--bg) 42%);
+}
+
+.shell {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.2rem 1rem 3rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0.35rem 0 0.7rem;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.hero-badges {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-badges span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.34rem 0.72rem;
+  font-size: 0.82rem;
+  background: #fff;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 1.15rem;
+  margin-top: 1rem;
+}
+
+.card.soft {
+  box-shadow: none;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.18rem;
+}
+
+.card p {
+  margin: 0.42rem 0 0;
+  color: var(--muted);
+}
+
+.scan-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+button {
+  appearance: none;
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  padding: 0.66rem 0.95rem;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+button.secondary {
+  background: var(--secondary);
+  color: var(--text);
+  border-color: var(--line);
+}
+
+button.secondary:hover {
+  background: #f9fafb;
+}
+
+button.text-btn {
+  margin-top: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #4b5563;
+  padding: 0;
+  font-weight: 500;
+}
+
+button.text-btn:hover {
+  transform: none;
+  color: #111827;
+}
+
+.camera-wrap {
+  margin-top: 1rem;
+  border: 1px dashed #c7cbd9;
+  border-radius: 14px;
+  padding: 0.8rem;
+  background: #fbfcff;
+}
+
+video {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #111;
+}
+
+#camera-status {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.pass-form {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.78rem;
+}
+
+label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.93rem;
+  color: #2b2f42;
+}
+
+input,
+select {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.62rem 0.7rem;
+  font: inherit;
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #cfd8ff;
+  outline-offset: 1px;
+  border-color: #9ea8df;
+}
+
+.status {
+  min-height: 1.2rem;
+  margin-top: 0.7rem;
+  font-size: 0.92rem;
+  color: #374151;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.status.success {
+  color: #0f766e;
+}
+
+.notify-form {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.65rem;
+}
+
+.notify-form input {
+  flex: 1;
+}
+
+.footnote {
+  margin-top: 1.3rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.footnote p {
+  margin: 0.25rem 0;
+}
+
+code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.89em;
+  background: #f3f4f6;
+  border: 1px solid #e6e8ef;
+  border-radius: 6px;
+  padding: 0.1rem 0.28rem;
+}
+
+@media (min-width: 720px) {
+  .pass-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pass-form label:first-child,
+  .pass-form label:nth-child(3),
+  .pass-form button {
+    grid-column: 1 / -1;
+  }
+
+  .notify-form {
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 719px) {
+  .notify-form {
+    flex-direction: column;
+  }
+}
