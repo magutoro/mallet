@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mallet | Wallet Pass Generator</title>
+    <meta
+      name="description"
+      content="Mallet turns your barcode, QR code, or loyalty number into an Apple Wallet pass in seconds."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Mallet</p>
+        <h1>Instant Apple Wallet Passes</h1>
+        <p class="subtitle">
+          Scan or paste a barcode, tune the pass details, and generate a .pkpass file in one click.
+        </p>
+        <div class="hero-badges">
+          <span>No signup</span>
+          <span>Barcode processed locally</span>
+          <span>Apple Wallet ready</span>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>1) Add your barcode</h2>
+        <p>Use camera, upload a screenshot, or paste the value manually.</p>
+
+        <div class="scan-actions">
+          <button id="start-camera" type="button">Scan with camera</button>
+          <button id="upload-image" type="button" class="secondary">Upload image</button>
+          <input id="image-input" type="file" accept="image/*" hidden />
+        </div>
+
+        <div class="camera-wrap" id="camera-wrap" hidden>
+          <video id="camera" autoplay muted playsinline></video>
+          <p id="camera-status">Point your camera at the barcode or QR code.</p>
+          <button id="stop-camera" type="button" class="text-btn">Stop camera</button>
+        </div>
+
+        <form id="pass-form" class="pass-form">
+          <label>
+            Barcode value
+            <input id="barcode-value" name="barcodeValue" placeholder="e.g. 123456789012" required />
+          </label>
+
+          <label>
+            Barcode format
+            <select id="barcode-format" name="barcodeFormat" required>
+              <option value="qr">QR</option>
+              <option value="code128">Code 128</option>
+              <option value="pdf417">PDF417</option>
+              <option value="aztec">Aztec</option>
+            </select>
+          </label>
+
+          <label>
+            Pass title
+            <input id="pass-title" name="title" placeholder="e.g. My Membership Card" required />
+          </label>
+
+          <label>
+            Label (optional)
+            <input id="pass-label" name="label" placeholder="e.g. Member ID" />
+          </label>
+
+          <label>
+            Value (optional)
+            <input id="pass-secondary-value" name="value" placeholder="e.g. Gold Tier" />
+          </label>
+
+          <label>
+            Card color
+            <select id="color-preset" name="colorPreset">
+              <option value="default">Default</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="purple">Purple</option>
+              <option value="teal">Teal</option>
+            </select>
+          </label>
+
+          <label>
+            Expiration
+            <select id="expiration-days" name="expirationDays">
+              <option value="">No expiration</option>
+              <option value="30">30 days</option>
+              <option value="90">90 days</option>
+              <option value="365">365 days</option>
+            </select>
+          </label>
+
+          <button id="generate-pass" type="submit">Generate .pkpass</button>
+        </form>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card soft">
+        <h2>Need API access?</h2>
+        <p>
+          This clone uses the same documented backend contract. Set <code>MALLET_API_KEY</code> and generate passes
+          server-side.
+        </p>
+      </section>
+
+      <section class="card soft">
+        <h2>Get updates</h2>
+        <form id="notify-form" class="notify-form">
+          <input id="notify-email" type="email" placeholder="Email address" required />
+          <button type="submit" class="secondary">Notify me</button>
+        </form>
+        <p id="notify-status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <footer class="footnote">
+        <p>Apple Wallet and .pkpass are trademarks of Apple Inc.</p>
+        <p>Built as Mallet.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
